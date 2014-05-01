@@ -4,6 +4,7 @@ DataStructureComparison
 A programming assignment given as part of a technical interview.
 
    Description
+   
 This program was made to test the performance difference between an ArrayList and a LinkedList.
 The end goal was to establish which of the two was more efficient for item removal.
 
