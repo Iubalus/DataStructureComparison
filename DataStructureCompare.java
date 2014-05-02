@@ -12,11 +12,10 @@ public class DataStructureCompare {
         int size = data.size();//data.size() has different costs for different list types.
         long startTime = System.currentTimeMillis();
         for(int i = 0; i < numberOfTests; i++){
-            data.remove(((int)drawFrom*(size-1)));
+            data.remove((int)(drawFrom*(size-1)));
             size--;
         }
         long endTime = System.currentTimeMillis();
-        
         //repopulate the test set
         for(int i = 0; i < numberOfTests;i++){
             data.add(new Object());
@@ -25,7 +24,7 @@ public class DataStructureCompare {
     }
     public static void main(String[] args){
         int dataSize = 10000000;//size of the test structures.
-        int operations = 1000;//number of each type of operation performed.
+        int operations = 10000;//number of each type of operation performed.
         
         //create two test Lists of the same size
         ArrayList array = new ArrayList();
