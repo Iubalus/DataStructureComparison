@@ -9,10 +9,10 @@ import java.util.List;
  */
 public class DataStructureCompare {
     public static long timeOperation(List data, double drawFrom, int numberOfTests){
-        int size = data.size();//This is because data.size() has different cost for LinkedList and ArrayList.
+        int size = data.size();//data.size() has different costs for different list types.
         long startTime = System.currentTimeMillis();
         for(int i = 0; i < numberOfTests; i++){
-            data.remove((drawFrom*(size)) - 1);
+            data.remove(((int)drawFrom*(size-1)));
             size--;
         }
         long endTime = System.currentTimeMillis();
@@ -25,7 +25,8 @@ public class DataStructureCompare {
     }
     public static void main(String[] args){
         int dataSize = 10000000;//size of the test structures.
-        int operations = 10000;//number of each type of operation performed.
+        int operations = 1000;//number of each type of operation performed.
+        
         //create two test Lists of the same size
         ArrayList array = new ArrayList();
         LinkedList linked = new LinkedList();
@@ -33,7 +34,7 @@ public class DataStructureCompare {
             array.add(new Object());
             linked.add(new Object());
         }
-        System.out.println("Lists created...begin time testing.");
+        System.out.println("Lists created.");
         String[] drawLocations = {"the front of", "1/4 into", "the middle of", "3/4 into", "the end of"};
         long arrayTime;
         long linkTime;
@@ -44,9 +45,9 @@ public class DataStructureCompare {
             linkTime = timeOperation(linked, mult, operations);
             System.out.println("Removing Elements from " + drawLocations[i] + " a list.");
             System.out.format("The ArrayList  took (%dmillis) to complete %d operations.\n", arrayTime, operations);
-            System.out.format("\tAverage time per operation = %fmillis\n", ((double)arrayTime)/((double)operations));
             System.out.format("The LinkedList took (%dmillis) to complete %d operations.\n", linkTime, operations);
-            System.out.format("\tAverage time per operation = %fmillis\n\n", ((double)linkTime)/((double)operations));
+            System.out.format("\tAverage time per ArrayList  operation = %.4fmillis\n", ((double)arrayTime)/((double)operations));
+            System.out.format("\tAverage time per LinkedList operation = %.4fmillis\n\n", ((double)linkTime)/((double)operations));
             mult += 0.25;
         }
     }
