@@ -1,6 +1,8 @@
 DataStructureComparison
 =======================
 
+Details about the results of this program can be found in the Wiki.
+
    Description
    
    This program was made to test the performance difference between an ArrayList and a LinkedList.
